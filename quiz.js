@@ -14,9 +14,9 @@ $(function() {
     }).done(function(res) {
       $('.answer').each(function() {
         if ($(this).text() === res.correct_answer) {
-          $(this).addClass('correct');
+          $(this).addClass('正解！');
         } else {
-          $(this).addClass('wrong');
+          $(this).addClass('残念！');
         }
       });
       // alert(res.correct_answer);
