@@ -22,10 +22,10 @@ if (!$quiz->isFinished()) {
   <?php if ($quiz->isFinished()) : ?>
     <div id="container">
       <div id="result">
-        あなたの結果は ...
+        あなたのスコアは ...
         <div>100 %</div>
       </div>
-      <a href=""><div id="btn">もう１回</div></a>
+      <a href=""><div id="btn">もう一回</div></a>
     </div>
     <?php $quiz->reset(); ?>
   <?php else : ?>
@@ -36,7 +36,7 @@ if (!$quiz->isFinished()) {
           <li class="answer"><?= h($a); ?></li>
         <?php endforeach; ?>
       </ul>
-      <div id="btn" class="disabled"><?= $quiz->isLast() ? '結果を見る' : '次の問題'; ?></div>
+      <div id="btn" class="disabled"><?= $quiz->isLast() ? 'Show Result' : 'Next Question'; ?></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="quiz.js"></script>
