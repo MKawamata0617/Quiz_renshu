@@ -10,22 +10,23 @@ $(function() {
     var answer = $selected.text();
 
     $.post('/_answer.php', {
-
+      answer: answer,
+      token: $('#token').val()
     }).done(function(res) {
       $('.answer').each(function() {
         if ($(this).text() === res.correct_answer) {
-          $(this).addClass('正解！');
+          $(this).addClass('correct');
         } else {
-          $(this).addClass('残念！');
+          $(this).addClass('wrong');
         }
       });
       // alert(res.correct_answer);
       if (answer === res.correct_answer) {
         // correct!
-        $selected.text(answer + ' ... CORRECT!');
+        $selected.text(answer + ' ... 正解!');
       } else {
         // wrong!
-        $selected.text(answer + ' ... WRONG!');
+        $selected.text(answer + ' ... 残念!');
       }
       $('#btn').removeClass('disabled');
     });

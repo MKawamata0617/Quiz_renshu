@@ -1,7 +1,6 @@
 <?php
 
 require_once(__DIR__ . '/config.php');
-require_once(__DIR__ . '/Quiz.php');
 
 $quiz = new MyApp\Quiz();
 
@@ -23,7 +22,7 @@ if (!$quiz->isFinished()) {
     <div id="container">
       <div id="result">
         あなたのスコアは ...
-        <div>100 %</div>
+        <div><?= h($quiz->getScore()); ?> %</div>
       </div>
       <a href=""><div id="btn">もう一回</div></a>
     </div>
@@ -36,7 +35,8 @@ if (!$quiz->isFinished()) {
           <li class="answer"><?= h($a); ?></li>
         <?php endforeach; ?>
       </ul>
-      <div id="btn" class="disabled"><?= $quiz->isLast() ? 'Show Result' : 'Next Question'; ?></div>
+      <div id="btn" class="disabled"><?= $quiz->isLast() ? 'Show Result' : '次へ'; ?></div>
+      <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="quiz.js"></script>
